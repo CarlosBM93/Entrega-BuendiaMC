@@ -56,3 +56,5 @@ def formularioBuzon(request):
         else:
             formulario = Formulariobuzon()
         return render(request, "registroBuzon.html", {"registros" : registro})
+    
+#Vistas para generar los buscadores

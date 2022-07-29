@@ -12,7 +12,7 @@ class Formulariocolaborador(forms.Form):
     apellido = forms.CharField()
     telefono = forms.IntegerField()
     correo = forms.EmailField()
-    Negocio = forms.CharField()  
+    negocio = forms.CharField()  
 
 class Formulariobuzon(forms.Form):
     nombre = forms.CharField()
