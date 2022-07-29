@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from views import inicio, cultural, gastronomico, natural, formularioCliente
+from App_Entrega.views import inicio, cultural, gastronomico, natural, formularioCliente, formularioColaborador, formularioBuzon
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,5 +9,7 @@ urlpatterns = [
     path('cultural/', cultural),
     path('gastronomico/', gastronomico),
     path('natural/', natural),
-    path('registro-cliente/',formularioCliente)
+    path('registro-cliente/',formularioCliente),
+    path('registro-colaborador/', formularioColaborador),
+    path('buzon/', formularioBuzon),
 ]
