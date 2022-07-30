@@ -20,7 +20,8 @@ def natural(self):
 
 def formularioCliente(request):
     if request.method == 'POST':
-        formulario = Formulariocliente()
+
+        formulario = Formulariocliente(request.POST)
         
         if formulario.is_valid():
             data = formulario.cleaned_data
@@ -31,31 +32,38 @@ def formularioCliente(request):
             formulario = Formulariocliente()
         return render(request, "registroCliente.html", {"registros" : registro})
 
+
 def formularioColaborador(request):
+
         if request.method == 'POST':
-            formulario  = Formulariocolaborador()
+
+            formulario  = Formulariocolaborador(request.POST)
 
         if formulario.is_valid():
             data = formulario.cleaned_data
-            registro = Colaborador(nombre = data['nombre'],  apellido = data['apellido'], telefono = data['telefono'], correo = data['correo'], negocio = data['negocio'])
-            registro.save()
+            registro_colaborador = Colaborador(nombre = data['nombre'],  apellido = data['apellido'], telefono = data['telefono'], correo = data['correo'], negocio = data['negocio'])
+            registro_colaborador.save()
             return render(request, "registroColaborador.html")
         else:
             formulario = Formulariocolaborador()
-        return render(request, "registroColaborador.html", {"registros" : registro})
+        return render(request, "registroColaborador.html", {"formulario" : formulario})
 
 def formularioBuzon(request):
+
         if request.method == 'POST':
-            formulario  = Formulariobuzon()
+
+            formulario  = Formulariobuzon(request.POST)
 
         if formulario.is_valid():
+
             data = formulario.cleaned_data
             registro = Buzon(nombre = data['nombre'],  apellido = data['apellido'], correo = data['correo'], sugerencia = data['sugerencia'])
             registro.save()
             return render(request, "registroBuzon.html")
+            
         else:
             formulario = Formulariobuzon()
-        return render(request, "registroBuzon.html", {"registros" : registro})
+        return render(request, "registroBuzon.html", {"formulario" : formulario})
     
 #Vistas para generar los buscadores de los formularios
 

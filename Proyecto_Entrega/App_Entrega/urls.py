@@ -5,11 +5,11 @@ from App_Entrega.views import inicio, cultural, gastronomico, natural, formulari
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', inicio),
-    path('cultural/', cultural),
-    path('gastronomico/', gastronomico),
-    path('natural/', natural),
-    path('registro-cliente/',formularioCliente),
-    path('registro-colaborador/', formularioColaborador),
-    path('buzon/', formularioBuzon),
+    path('inicio/', inicio, name='inicio'),
+    path('cultural/', cultural, name='cultural'),
+    path('gastronomico/', gastronomico, name='gastronomico'),
+    path('natural/', natural, name='natural'),
+    path('registro-cliente/',formularioCliente, name='registro_cliente'),
+    path('registro-colaborador/', formularioColaborador, name='registro_colaborador'),
+    path('buzon/', formularioBuzon, name='buzon'),
 ]

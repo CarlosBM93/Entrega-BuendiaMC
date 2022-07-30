@@ -1,0 +1,17 @@
+% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Incersion %}
+
+            <form action="{% url 'cursoFormulario' %}" method="POST">{% csrf_token %}
+
+                {{Formulario.as_p}}
+
+                <input type="submit" value="Enviar">
+
+            </form>
+
+            
+
+{% endblock Incersion %}
