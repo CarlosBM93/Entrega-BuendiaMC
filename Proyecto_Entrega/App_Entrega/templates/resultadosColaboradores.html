@@ -4,24 +4,24 @@
 
 {% block Insercion %}
 
-    <p>En proceso de búsqueda de los colaboradores inscritos: {{negocio}}</p>
+    <p>En proceso de búsqueda de los colaboradores inscritos al programa como: {{negocio}}</p>
 
     
-    {% if actividad %}
+    {% if negocio %}
 
-    <ul>
+        <ul>
 
-        
-        {% for colaborador in negocio %}
+            
+            {% for i in negocio %}
 
             <li>
-                {{colaborador.nombre}} {{colaborador.apellido}}-{{colaborador.negocio}}
+                {{i.nombre}} {{i.apellido}}
             </li>
             
-        {% endfor %}
-            
+             {% endfor %}
+                
 
-    </ul>
+        </ul>
         
     {% else %}
 

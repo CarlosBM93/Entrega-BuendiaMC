@@ -9,19 +9,19 @@
         
     {% if sugerencia %}
 
-    <ul>
+        <ul>
 
-        
-        {% for i in sugerencia %}
-
-            <li>
-                {{i.nombre}} {{i.apellido}}-{{i.sugerencia}}
-            </li>
             
-        {% endfor %}
-            
+            {% for i in sugerencia %}
 
-    </ul>
+                <li>
+                    {{i.nombre}} {{i.apellido}}-{{i.sugerencia}}
+                </li>
+                
+            {% endfor %}
+                
+
+        </ul>
         
     {% else %}
 

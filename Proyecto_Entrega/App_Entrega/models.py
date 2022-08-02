@@ -26,7 +26,7 @@ class Buzon(models.Model):
     nombre = models.CharField(max_length=80)
     apellido = models.CharField(max_length=80)
     correo = models.EmailField()
-    sugerencia = models.CharField(max_length=80)
+    sugerencia = models.CharField(max_length=280)
 
     def __str__(self) -> str:
        return f'{self.nombre} {self.apellido} - {self.sugerencia}'

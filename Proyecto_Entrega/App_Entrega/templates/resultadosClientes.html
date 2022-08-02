@@ -9,23 +9,23 @@
     
     {% if actividad %}
 
-    <ul>
+        <ul>
 
-        
-        {% for cliente in actividad %}
-
-            <li>
-                {{i.nombre}} {{i.apellido}}-{{i.actividad}}
-            </li>
             
-        {% endfor %}
-            
+            {% for cliente in actividad %}
 
-    </ul>
-        
+                <li>
+                    {{cliente.nombre}} {{cliente.apellido}} - {{cliente.actividad}}
+                </li>
+                
+            {% endfor %}
+                
+
+        </ul>
+            
     {% else %}
 
-    <p>No hubo coincidencias</p>
+        <p>No hubo coincidencias</p>
 
     {% endif %}
         

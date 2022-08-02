@@ -19,7 +19,7 @@ urlpatterns = [
 
     #url para busqueda en los formularios
     path('busquedaCliente/',busquedaCliente, name='busquedaCliente'),
-    path('resultadoCliente/',resultadoCliente,name='resultadoCliente'),
+    path('resultadoCliente/',resultadoCliente,name='resultadosClientes'),
 
     path('busquedaColaborador/',busquedaColaborador, name='busquedaColaborador'),
     path('resultadoColaborador/',resultadoColaborador,name='resultadoColaborador'),
