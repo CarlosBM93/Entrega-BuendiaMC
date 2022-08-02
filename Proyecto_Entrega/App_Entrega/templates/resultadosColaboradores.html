@@ -1,0 +1,35 @@
+{% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Insercion %}
+
+    <p>En proceso de búsqueda de los colaboradores inscritos: {{negocio}}</p>
+
+    
+    {% if actividad %}
+
+    <ul>
+
+        
+        {% for colaborador in negocio %}
+
+            <li>
+                {{colaborador.nombre}} {{colaborador.apellido}}-{{colaborador.negocio}}
+            </li>
+            
+        {% endfor %}
+            
+
+    </ul>
+        
+    {% else %}
+
+    <p>No hubo coincidencias</p>
+
+    {% endif %}
+        
+
+            
+
+{% endblock Insercion %}

@@ -8,14 +8,15 @@
 
     <h1>Seccion de registro de clientes</h1>    
 
-    <form action="">
+    <form action="{% url 'formularioCliente' %}" method="POST">{% csrf_token %}
 
         <p>Nombre <input type="text" name="nombre"></p>
         <p>Apellido <input type="text" name="apellido"></p>
-        <p>Correo <input type="text" name="correo"></p>
+        <p>Correo <input type="email" name="correo"></p>
         <p>Actividad <input type="text" name="actividad"></p>
-        <p>Fecha <input type="text" name="fecha"></p>
+        <p>Fecha <input type="date" name="fecha"></p>
         <input type="submit" value="Enviar">
+
     </form>
     
             

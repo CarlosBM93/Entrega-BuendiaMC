@@ -1,0 +1,35 @@
+{% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Insercion %}
+
+    <p>En proceso de búsqueda de los clientes inscritos: {{actividad}}</p>
+
+    
+    {% if actividad %}
+
+    <ul>
+
+        
+        {% for cliente in actividad %}
+
+            <li>
+                {{i.nombre}} {{i.apellido}}-{{i.actividad}}
+            </li>
+            
+        {% endfor %}
+            
+
+    </ul>
+        
+    {% else %}
+
+    <p>No hubo coincidencias</p>
+
+    {% endif %}
+        
+
+            
+
+{% endblock Insercion %}

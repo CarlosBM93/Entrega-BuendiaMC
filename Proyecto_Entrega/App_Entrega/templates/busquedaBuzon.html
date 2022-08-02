@@ -4,13 +4,13 @@
 
 {% block Insercion %}
 
-            <form action="{% url 'lista_buzon' %}" method="POST">{% csrf_token %}
+    <form action="{% url 'resultadoBuzon' %}" method="GET">{% csrf_token %}
 
-                {{formulario.as_p}}
+        <p>Nombre: <input type="text" name="nombre"></p>
 
-                <input type="submit" value="Enviar">
+        <input type="submit" value="Buscar">
 
-            </form>
+    </form>
 
             
 

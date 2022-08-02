@@ -1,0 +1,32 @@
+{% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Insercion %}
+
+    <p>En proceso de búsqueda de las sugerencias</p>
+
+        
+    {% if sugerencia %}
+
+    <ul>
+
+        
+        {% for i in sugerencia %}
+
+            <li>
+                {{i.nombre}} {{i.apellido}}-{{i.sugerencia}}
+            </li>
+            
+        {% endfor %}
+            
+
+    </ul>
+        
+    {% else %}
+
+    <p>No hubo coincidencias</p>
+
+    {% endif %}
+
+{% endblock Insercion %}

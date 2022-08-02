@@ -4,13 +4,14 @@
 
 {% block Insercion %}
 
-            <form action="{% url lista_colaborador %}" method="POST">{% csrf_token %}
+    <form action="{% url 'resultadoColaborador' %}" method="GET">{% csrf_token %}
 
-                {{formulario.as_p}}
+        <p>Negocio: <input type="text" name="negocio"></p>
 
-                <input type="submit" value="Enviar">
+        <input type="submit" value="Buscar">
 
-            </form>
+    </form>
+
 
             
 

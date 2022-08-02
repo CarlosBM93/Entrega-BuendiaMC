@@ -4,9 +4,9 @@
 
 {% block Insercion %}
 
-            <form action="{% url lista_cliente %}" method="POST">{% csrf_token %}
+            <form action="{% url 'resultadoCliente' %}" method="GET">{% csrf_token %}
 
-                <p>correo: <input type="text" name="correo"></p>
+                <p>Actividad: <input type="text" name="actividad"></p>
 
                 <input type="submit" value="Buscar">
 

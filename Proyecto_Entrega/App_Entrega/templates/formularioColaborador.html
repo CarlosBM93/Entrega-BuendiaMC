@@ -6,12 +6,12 @@
 
 <h1>Seccion de registro de colaboradores</h1>  
 
-<form action="">
+<form action="{% url 'formularioColaborador' %}" method="POST">{% csrf_token %}
 
     <p>Nombre <input type="text" name="nombre"></p>
     <p>Apellido <input type="text" name="apellido"></p>
-    <p>Telefono <input type="text" name="actividad"></p>
-    <p>Correo <input type="text" name="correo"></p>
+    <p>Telefono <input type="number" name="telefono"></p>
+    <p>Correo <input type="email" name="correo"></p>
     <p>Negocio <input type="text" name="negocio"></p>
     <input type="submit" value="Enviar">
 
