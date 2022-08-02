@@ -1,0 +1,17 @@
+{% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Insercion %}
+
+            <form action="{% url lista_cliente %}" method="POST">{% csrf_token %}
+
+                <p>correo: <input type="text" name="correo"></p>
+
+                <input type="submit" value="Buscar">
+
+            </form>
+
+            
+
+{% endblock Insercion %}

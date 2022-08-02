@@ -1,0 +1,20 @@
+{% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Insercion %}
+
+<h1>Seccion de registro de sugerencias y quejas</h1>  
+    
+<form action="">
+
+    <p>Nombre <input type="text" name="nombre"></p>
+    <p>Apellido <input type="text" name="apellido"></p>
+    <p>Correo <input type="text" name="correo"></p>
+    <p>Sugerencia <input type="text" name="sugerencia"></p>
+    <input type="submit" value="Enviar">
+
+</form>
+
+
+{% endblock Insercion %}

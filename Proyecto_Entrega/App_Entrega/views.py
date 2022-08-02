@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from App_Entrega.models import Cliente, Colaborador, Buzon
 from App_Entrega.forms import Formulariocliente, Formulariocolaborador, Formulariobuzon
 from django.shortcuts import render
@@ -16,54 +17,60 @@ def gastronomico(self):
 def natural(self):
     return render(self,"natural.html")
 
-#Vistas para generar formularios
 
-def formularioCliente(request):
-    if request.method == 'POST':
+    
+#Vistas para generar los registros de los formularios
 
-        formulario = Formulariocliente(request.POST)
-        
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-            registro = Cliente(nombre = data['nombre'],  apellido = data['apellido'], correo = data['correo'], actividad = data['actividad'], fecha = data['fecha'])
-            registro.save()
-            return render(request, "registroCliente.html")
-        else:
-            formulario = Formulariocliente()
-        return render(request, "registroCliente.html", {"registros" : registro})
+def formularioClientes(request):
 
+    return render(request,"formularioCliente.html")
 
-def formularioColaborador(request):
-
-        if request.method == 'POST':
-
-            formulario  = Formulariocolaborador(request.POST)
-
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-            registro_colaborador = Colaborador(nombre = data['nombre'],  apellido = data['apellido'], telefono = data['telefono'], correo = data['correo'], negocio = data['negocio'])
-            registro_colaborador.save()
-            return render(request, "registroColaborador.html")
-        else:
-            formulario = Formulariocolaborador()
-        return render(request, "registroColaborador.html", {"formulario" : formulario})
+def formularioColaboradores(request):
+    
+    return render(request,"formularioColaborador.html")
 
 def formularioBuzon(request):
-
-        if request.method == 'POST':
-
-            formulario  = Formulariobuzon(request.POST)
-
-        if formulario.is_valid():
-
-            data = formulario.cleaned_data
-            registro = Buzon(nombre = data['nombre'],  apellido = data['apellido'], correo = data['correo'], sugerencia = data['sugerencia'])
-            registro.save()
-            return render(request, "registroBuzon.html")
-            
-        else:
-            formulario = Formulariobuzon()
-        return render(request, "registroBuzon.html", {"formulario" : formulario})
     
-#Vistas para generar los buscadores de los formularios
+    return render(request,"formularioBuzon.html")
 
+
+#Vistas para generar los ingresos de datos en la BD
+
+def buscarCliente(request):
+
+    if request.GET["correo"]:
+
+        correo = request.GET['correo']
+        cliente = Cliente.objects.filter(correo_icontains=correo)
+
+        return render(request, "listaClientes.html", {"correo":correo, "cliente" : cliente})
+    
+    else:
+        respuesta = "No enviaste datos"
+        return HttpResponse(respuesta)
+
+def buscarColaborador(request):
+
+    if request.GET["correo"]:
+
+        correo = request.GET['correo']
+        colaborador = Colaborador.objects.filter(correo_icontains=correo)
+
+        return render(request, "listaColaboradores.html", {"correo":correo, "colab" : cliente})
+    
+    else:
+        respuesta = "No enviaste datos"
+        return HttpResponse(respuesta)
+    
+def buscarBuzon(request):
+
+    if request.GET["correo"]:
+
+        correo = request.GET['correo']
+        sugerencia = Buzon.objects.filter(correo_icontains=correo)
+
+        return render(request, "listaBuzon.html", {"correo":correo, "cliente" : cliente})
+    
+    else:
+        respuesta = "No enviaste datos"
+        return HttpResponse(respuesta)

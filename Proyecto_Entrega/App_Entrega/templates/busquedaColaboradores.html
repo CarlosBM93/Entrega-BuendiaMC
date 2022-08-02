@@ -1,0 +1,17 @@
+{% extends 'inicio.html' %}
+
+{%load static%}
+
+{% block Insercion %}
+
+            <form action="{% url lista_colaborador %}" method="POST">{% csrf_token %}
+
+                {{formulario.as_p}}
+
+                <input type="submit" value="Enviar">
+
+            </form>
+
+            
+
+{% endblock Insercion %}
