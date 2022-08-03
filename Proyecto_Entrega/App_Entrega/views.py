@@ -67,9 +67,9 @@ def resultadoCliente(request):
 
         actividad = request.GET['actividad']
 
-        clientes = Cliente.objects.filter(actividad__icontains=actividad)
+        cliente = Cliente.objects.filter(actividad__icontains=actividad)
 
-        return render(request, "resultadosClientes.html", {"actividad" : actividad, "nombre" : clientes})
+        return render(request, "resultadosClientes.html", {"actividad" : actividad, "clientes" : cliente})
     
     else:
         respuesta = "No enviaste datos"
@@ -89,7 +89,7 @@ def resultadoColaborador(request):
 
         colaborador = Colaborador.objects.filter(negocio__icontains=negocio)
 
-        return render(request, "resultadosColaboradores.html", {"negocio" : negocio, "nombre" : colaborador})
+        return render(request, "resultadosColaboradores.html", {"negocio" : negocio, "colaborador" : colaborador})
     
     else:
         respuesta = "No enviaste datos"
@@ -107,9 +107,9 @@ def resultadoBuzon(request):
 
         cliente = request.GET['nombre']
 
-        buzon = Buzon.objects.filter(nombre__icontains=cliente)
+        sugerencia = Buzon.objects.filter(nombre__icontains=cliente)
 
-        return render(request, "resultadosBuzon.html", {"nombre" : cliente, "sugerencia" : buzon})
+        return render(request, "resultadosBuzon.html", { "sugerencia" : sugerencia, "nombre" : cliente})
     
     else:
         respuesta = "No enviaste datos"

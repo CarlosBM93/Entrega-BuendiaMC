@@ -4,10 +4,10 @@
 
 {% block Insercion %}
 
-    <p>En proceso de búsqueda de las sugerencias</p>
+    <p>En proceso de búsqueda de las sugerencias con nombre: {{nombre}}</p>
 
         
-    {% if sugerencia %}
+    {% if nombre %}
 
         <ul>
 
@@ -25,7 +25,7 @@
         
     {% else %}
 
-    <p>No hubo coincidencias</p>
+        <p>No hubo coincidencias</p>
 
     {% endif %}
 
